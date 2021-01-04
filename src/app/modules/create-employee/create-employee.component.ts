@@ -29,6 +29,7 @@ export class CreateEmployeeComponent implements OnInit {
   id: any;
   isEditMode: boolean = false;
   user : Employee;
+  msg=' ';
 
 
   form = new FormGroup({
@@ -80,24 +81,32 @@ export class CreateEmployeeComponent implements OnInit {
     .createEmployee(this.employee).subscribe(data => {
       console.log(data)
       this.employee = new Employee();
-      this.gotoList();
     }, 
     error => console.log(error));
   }
 
   onSubmit() {
+    if(this.submitted =true){}
     
-      if(this.submitted =true){
-     // alert(`Error:- Mobile Number i.e {${this.employee.emailId}} you entered already exists. Type a different contact number and try again`);
-
-    }
-    this.save();    
+     this.save(); 
+    this.employeeService.loginUserFromRemote(this.employee).subscribe(
+      data=>{
+                  console.log("response receuved");
+                 this.router.navigate(['/posts'])
+      }
+                ,
+                error=>{console.log("exception error");
+                this.msg=`Error:- Mobile Number i.e {${this.employee.emailId}} you entered already exists. Type a different contact number and try again`;
+      }
+    )
+       
+   
+    
+        
   }
   
   
-  gotoList() {
-    this.router.navigate(['/posts']);
-  }
+ 
   
 }
 

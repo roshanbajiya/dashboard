@@ -8,7 +8,7 @@
         <h2> Fill User Details</h2>
 
   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
- 
+ <small class="text-danger">{{msg}}</small>
 
     <div class="form-group">
       <label for="name">First Name</label>
