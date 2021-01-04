@@ -96,7 +96,7 @@ export class CreateEmployeeComponent implements OnInit {
       }
                 ,
                 error=>{console.log("exception error");
-                this.msg=`Error:- Mobile Number i.e {${this.employee.emailId}} you entered already exists. Type a different contact number and try again`;
+                this.msg=`Error:- Mobile Number i.e ${this.employee.emailId} you entered already exists. Type a different contact number and try again`;
       }
     )
        
