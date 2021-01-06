@@ -13,7 +13,7 @@ import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PieComponent
   ],
   imports: [
+    MatDialogModule,
     BrowserModule,
         FormsModule,
         ReactiveFormsModule,
@@ -39,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HighchartsChartModule
   ],
   exports: [
+    MatDialogModule,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,

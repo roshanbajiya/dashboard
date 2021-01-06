@@ -12,6 +12,7 @@ export class UpdateEmployeeComponent implements OnInit {
 
   id: number;
   employee: Employee;
+  msg=' ';
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: EmployeeService) { }
@@ -38,9 +39,31 @@ export class UpdateEmployeeComponent implements OnInit {
   }
   
 
+
   onSubmit() {
-    this.updateEmployee();    
+   
+    this.employeeService.loginUserFromRemote(this.employee).subscribe(
+      data=>{
+                  console.log("response receuved");
+                  this.updateEmployee();  
+                // this.router.navigate(['/posts'])
+      }
+                ,
+                error=>{console.log("exception error");
+                this.msg=`Error:- Mobile Number  ${this.employee.emailId} you entered already exists. Type a different contact number and try again`;
+      }
+    )
+       
+   
+    
+        
   }
+  
+
+
+  // onSubmit() {
+  //   this.updateEmployee();    
+  // }
 
   gotoList() {
     this.router.navigate(['/employees']);

@@ -35,6 +35,7 @@ import { UpdateEmployeeComponent } from './modules/update-employee/update-employ
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[CreateEmployeeComponent]
 })
 export class AppModule { }

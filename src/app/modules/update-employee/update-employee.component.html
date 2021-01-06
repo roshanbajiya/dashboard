@@ -7,11 +7,13 @@
 <h3>Update Employee</h3>
 <div style="width: 400px;">
   <form  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"novalidate>
+    <small class="text-danger">{{msg}}</small>
     <div class="form-group">
       <label for="name">First Name</label>
       <input type="text" class="form-control" id="firstName"  required [(ngModel)]="employee.firstName" placeholder="Enter your First Name" name="firstName" #firstName="ngModel"
       [ngClass]="{ 'is-valid' : firstName.valid && (firstName.dirty || firstName.touched), 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched) }" required />
-
+      <small class="text-danger" [class.d-none]="firstName.valid||firstName.untouched">First Name is required field</small>
+   
        
     </div>
 
@@ -20,12 +22,17 @@
       <label for="name">Last Name</label>
       <input type="text" class="form-control"  placeholder="Enter your Last Name" id="lastName" required [(ngModel)]="employee.lastName" name="lastName" #lastName="ngModel"
       [ngClass]="{ 'is-valid' : lastName.valid && (lastName.dirty || lastName.touched), 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched) }" required />
+      <small class="text-danger" [class.d-none]="lastName.valid||lastName.untouched">Last Name is required field</small>
+   
     </div>
 
 
     <div class="form-group">
       <label for="name">Contact Number</label>
-      <input type="number" class="form-control" placeholder="Enter your Contact Number"  required [(ngModel)]="employee.emailId" name="emailId">
+      <input type="number" class="form-control" placeholder="Enter your Contact Number"  required [(ngModel)]="employee.emailId" name="emailId" #emailId="ngModel"
+      [ngClass]="{ 'is-valid' : emailId.valid && (emailId.dirty || emailId.touched), 'is-invalid': emailId.invalid && (emailId.dirty || emailId.touched) }" required />
+      <small class="text-danger" [class.d-none]="emailId.valid||emailId.untouched">Contact Number is required field</small>
+
     </div>
 
     
@@ -36,9 +43,9 @@
   <br>
   <br>
 
-  <div  font>
+  <!-- <div  font>
   <p style="font-size:80%;">*Note:- If you are not able to Register then please change the contact number</p>
-</div>
+</div> -->
 </div>
 
 </div>
